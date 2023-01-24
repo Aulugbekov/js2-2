@@ -49,18 +49,15 @@ let promise = new Promise((resolve, reject) => {
     const JsonData = JSON.stringify(person);
     console.log(person, JsonData);
     resolve();
-  }, 1000);
+  }, 2000);
 });
 
 // promise.then навешивает обработчики на успешный результат или ошибку
 promise.then(
-  () => {
+  setTimeout(() => {
     console.log("Parsed data is ready...");
     const JsonParsed = JSON.parse(JsonData);
     console.log(JsonParsed);
     console.log("loading end");
-  },
-  (error) => {
- 
-    alert("Rejected: " + error); }
+  }, 3000)
 );
